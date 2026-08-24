@@ -1,0 +1,26 @@
+# --- Personal & generated data: NEVER commit ---
+# Your own voice notes / reference clips (private!)
+samples/
+# Generated audio, UI logs, job temp dirs
+outputs/
+# Downloaded model weights (~GBs, auto-fetched on first run)
+checkpoints/
+
+# --- Heavy third-party components (recreated by ./setup.sh) ---
+# Seed-VC upstream clone (GPL-3.0, pinned in setup.sh)
+seed-vc/
+# Chatterbox virtualenv + its cache
+chatterbox/
+
+# --- Python cruft ---
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv*/
+venv/
+
+# --- OS/editor ---
+.DS_Store
+*.swp
+.idea/
+.vscode/
