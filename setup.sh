@@ -36,8 +36,9 @@ else
 fi
 
 FREE_GB=$(df -BG . | awk 'NR==2 {print int($4)}')
-if (( FREE_GB < 20 )); then
-    fail "only ${FREE_GB}GB free; ~20GB needed (venvs + model cache)"
+MIN_GB="${VOICE_LAB_MIN_GB:-20}"
+if (( FREE_GB < MIN_GB )); then
+    fail "only ${FREE_GB}GB free; ${MIN_GB}GB needed (venvs + model cache)"
 fi
 echo "    disk: ${FREE_GB}GB free"
 
