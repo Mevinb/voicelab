@@ -9,6 +9,12 @@ ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 LOG_DIR="$ROOT/outputs/ui_logs"
 mkdir -p "$LOG_DIR"
 
+# First run on a fresh clone? Bootstrap everything automatically.
+if [[ ! -x "$ROOT/seed-vc/.venv/bin/python" || ! -x "$ROOT/chatterbox/.venv/bin/python" ]]; then
+    echo "[voice-ui] first run detected — running setup.sh (installs deps, ~10 min)..."
+    "$ROOT/setup.sh"
+fi
+
 # Stop leftover instances for a clean restart
 pkill -f "$ROOT/vc_worker.py" 2>/dev/null || true
 pkill -f "$ROOT/app.py" 2>/dev/null || true
