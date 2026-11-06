@@ -5,12 +5,20 @@ samples/
 outputs/
 # Downloaded model weights (~GBs, auto-fetched on first run)
 checkpoints/
+# Saved reference voices (private!)
+voices/
 
 # --- Heavy third-party components (recreated by ./setup.sh) ---
 # Seed-VC upstream clone (GPL-3.0, pinned in setup.sh)
 seed-vc/
 # Chatterbox virtualenv + its cache
 chatterbox/
+# Project-local uv cache (only used when the global one is on another disk)
+.uv-cache/
+
+# --- Environment & logs ---
+.env*
+*.log
 
 # --- Python cruft ---
 __pycache__/
@@ -18,6 +26,8 @@ __pycache__/
 *.egg-info/
 .venv*/
 venv/
+.ruff_cache/
+.pytest_cache/
 
 # --- OS/editor ---
 .DS_Store
